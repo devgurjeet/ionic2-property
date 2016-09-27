@@ -1,22 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http,Response } from '@angular/http';
 import {PROPERTIES} from './mock-properties';
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Observable';
 
 var favorites = [];
 
+
 @Injectable()
 export class PropertyService {
+    constructor(private http:Http) { }
 
     findAll() {
-
-        console.log(PROPERTIES);
-
-        return Observable.create(observer => {
-            observer.next(PROPERTIES);
-            observer.complete();
-        });
+        return this.http.get('json/mock-properties.json').map((res:Response) => res.json());
     }
 
     getFavorites() {

@@ -9,10 +9,13 @@ import {PropertyService} from '../../providers/property-service/property-service
 })
 export class PropertyListPage {
 	properties;
-	constructor(private navCtrl: NavController, public propertyService: PropertyService) {
-		// this.navCtrl         = navCtrl;
-		// this.properties = propertyService;
-		// this.selectedItem    = navParams.get('item');
+    selectedItem;
+
+
+	constructor(private navCtrl: NavController,navParams: NavParams, public propertyService: PropertyService) {
+		this.navCtrl         = navCtrl;
+		this.propertyService = propertyService;
+		this.selectedItem    = navParams.get('item');
 	}
 
     static get parameters() {
@@ -22,7 +25,7 @@ export class PropertyListPage {
     ngOnInit() {
         console.log('init');
         this.propertyService.findAll().subscribe(
-            data => {this.properties = data, console.log(data)}
+            data => this.properties = data
         );
 
 
