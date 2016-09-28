@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {OnInit} from '@angular/core';
 import { NavParams, NavController } from 'ionic-angular';
+import {PropertyDetailsPage} from '../property-details/property-details';
 import {PropertyService} from '../../providers/property-service/property-service';
 
 @Component({
@@ -32,9 +33,9 @@ export class PropertyListPage {
     }
 
     itemTapped(event, property) {
-        /*this.nav.push(PropertyDetailsPage, {
+        this.navCtrl.push(PropertyDetailsPage, {
             property: property
-        });*/
+        });
         console.log('Item Clicked!');
     }
 
