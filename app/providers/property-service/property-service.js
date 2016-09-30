@@ -9,18 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var http_1 = require('@angular/http');
 var mock_properties_1 = require('./mock-properties');
 require('rxjs/add/operator/map');
 var Observable_1 = require('rxjs/Observable');
 var favorites = [];
 var PropertyService = (function () {
-    function PropertyService() {
+    function PropertyService(http) {
+        this.http = http;
     }
     PropertyService.prototype.findAll = function () {
-        return Observable_1.Observable.create(function (observer) {
-            observer.next(mock_properties_1.PROPERTIES);
-            observer.complete();
-        });
+        return this.http.get('json/mock-properties.json').map(function (res) { return res.json(); });
     };
     PropertyService.prototype.getFavorites = function () {
         return Observable_1.Observable.create(function (observer) {
@@ -64,7 +63,7 @@ var PropertyService = (function () {
     };
     PropertyService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [http_1.Http])
     ], PropertyService);
     return PropertyService;
 }());

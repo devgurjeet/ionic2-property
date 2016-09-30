@@ -10,41 +10,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
-var property_details_1 = require('../property-details/property-details');
 var property_service_1 = require('../../providers/property-service/property-service');
-var PropertyListPage = (function () {
-    function PropertyListPage(navCtrl, navParams, propertyService) {
+var broker_details_1 = require('../broker-details/broker-details');
+var PropertyDetailsPage = (function () {
+    function PropertyDetailsPage(navCtrl, navParams, propertyService) {
         this.navCtrl = navCtrl;
         this.propertyService = propertyService;
         this.navCtrl = navCtrl;
         this.propertyService = propertyService;
-        this.selectedItem = navParams.get('item');
+        this.property = navParams.data.property;
     }
-    Object.defineProperty(PropertyListPage, "parameters", {
+    Object.defineProperty(PropertyDetailsPage, "parameters", {
         get: function () {
             return [[ionic_angular_1.NavController], [ionic_angular_1.NavParams], [property_service_1.PropertyService]];
         },
         enumerable: true,
         configurable: true
     });
-    PropertyListPage.prototype.ngOnInit = function () {
-        var _this = this;
-        console.log('init');
-        this.propertyService.findAll().subscribe(function (data) { return _this.properties = data; });
-    };
-    PropertyListPage.prototype.itemTapped = function (event, property) {
-        this.navCtrl.push(property_details_1.PropertyDetailsPage, {
-            property: property
+    PropertyDetailsPage.prototype.showBroker = function ($event, broker) {
+        this.navCtrl.push(broker_details_1.BrokerDetailsPage, {
+            broker: broker
         });
-        console.log('Item Clicked!');
+        console.log('broker Clicked!');
     };
-    PropertyListPage = __decorate([
+    PropertyDetailsPage = __decorate([
         core_1.Component({
-            templateUrl: 'build/pages/property-list/property-list.html',
+            templateUrl: 'build/pages/property-details/property-details.html',
             providers: [property_service_1.PropertyService]
         }), 
         __metadata('design:paramtypes', [ionic_angular_1.NavController, ionic_angular_1.NavParams, property_service_1.PropertyService])
-    ], PropertyListPage);
-    return PropertyListPage;
+    ], PropertyDetailsPage);
+    return PropertyDetailsPage;
 }());
-exports.PropertyListPage = PropertyListPage;
+exports.PropertyDetailsPage = PropertyDetailsPage;

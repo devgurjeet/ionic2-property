@@ -5,7 +5,7 @@ import {HelloIonicPage} from './pages/hello-ionic/hello-ionic';
 import {ListPage} from './pages/list/list';
 import {WelcomePage} from './pages/welcome/welcome';
 import {PropertyListPage} from './pages/property-list/property-list';
-
+import {BrokerListPage} from './pages/broker-list/broker-list';
 
 
 @Component({
@@ -27,8 +27,9 @@ class MyApp {
     this.pages = [
       {title: 'Home', component: WelcomePage},
       {title: 'All Properties', component: PropertyListPage},
-        // { title: 'Hello Ionic', component: HelloIonicPage },
-        // { title: 'My First List', component: ListPage }
+      {title: 'All Brokers', component: BrokerListPage},
+      // { title: 'Hello Ionic', component: HelloIonicPage },
+      // { title: 'My First List', component: ListPage }
     ];
   }
 

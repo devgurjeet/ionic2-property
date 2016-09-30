@@ -11,8 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
 var ionic_native_1 = require('ionic-native');
-var hello_ionic_1 = require('./pages/hello-ionic/hello-ionic');
-var list_1 = require('./pages/list/list');
 var welcome_1 = require('./pages/welcome/welcome');
 var property_list_1 = require('./pages/property-list/property-list');
 var MyApp = (function () {
@@ -23,10 +21,8 @@ var MyApp = (function () {
         this.initializeApp();
         // set our app's pages
         this.pages = [
-            { title: 'Welcome', component: welcome_1.WelcomePage },
-            { title: 'Property List', component: property_list_1.PropertyListPage },
-            { title: 'Hello Ionic', component: hello_ionic_1.HelloIonicPage },
-            { title: 'My First List', component: list_1.ListPage }
+            { title: 'Home', component: welcome_1.WelcomePage },
+            { title: 'All Properties', component: property_list_1.PropertyListPage },
         ];
     }
     MyApp.prototype.initializeApp = function () {

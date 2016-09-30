@@ -14,9 +14,9 @@ export class PropertyListPage {
 
 
 	constructor(private navCtrl: NavController,navParams: NavParams, public propertyService: PropertyService) {
-		this.navCtrl         = navCtrl;
-		this.propertyService = propertyService;
-		this.selectedItem    = navParams.get('item');
+        this.navCtrl             = navCtrl;
+        this.propertyService     = propertyService;
+        this.selectedItem        = navParams.get('property');
 	}
 
     static get parameters() {
